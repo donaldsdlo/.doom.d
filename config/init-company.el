@@ -24,11 +24,11 @@
   (global-company-mode)
   )
 (set-company-backend! 'prog-mode
-  ;;'company-tabnine
+  'company-tabnine
   'company-capf 'company-yasnippet 'company-files 'company-dabbrev 'company-dabbrev-code)
-;;(setq +lsp-company-backend '(company-lsp :with company-tabnine :separate))
+(setq +lsp-company-backend '(company-lsp :with company-tabnine :separate))
 
-(setq +lsp-company-backend '(company-lsp))
+;;(setq +lsp-company-backend '(company-lsp))
 ;;(use-package company-tabnine :ensure t)
 ;;(add-to-list 'company-backends #'company-tabnine)
 (setq company-idle-delay 0)

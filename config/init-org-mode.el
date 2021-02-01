@@ -30,5 +30,31 @@
       :desc "org download clipboard"
       "z c" #'org-download-clipboard
       )
+;; (org-indent-mode -1)
+;; (add-hook 'org-mode-hook #'valign-mode)
+;;
+;;
+
+;; (defun my-org-screenshot (basename)
+;;   "Take a screenshot into a time stamped unique-named file in the
+;; same directory as the org-buffer and insert a link to this file."
+;;   (interactive "sScreenshot name: ")
+;;   (if (equal basename "")
+;;       (setq basename (format-time-string "%Y%m%d_%H%M%S")))
+;;   (setq filename
+;;         (concat (file-name-directory (buffer-file-name))
+;;                 "imgs/"
+;;                 (file-name-base (buffer-file-name))
+;;                 "_"
+;;                 basename
+;;                 ".png"))
+;;   (call-process "screencapture" nil nil nil "-s" filename)
+;;   (insert "#+CAPTION:")
+;;   (insert basename)
+;;   (insert "\n")
+;;   (insert (concat "[[" filename "]]"))
+;;   (org-display-inline-images))
+
+
 
 (provide 'init-org-mode)

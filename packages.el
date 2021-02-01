@@ -67,3 +67,10 @@
 (package! company-tabnine)
 (package! window-number)
 (package! which-key)
+(package! ox-pandoc)
+(package! valign
+  :recipe (:host github :repo "casouri/valign")
+ )
+
+
+(package! youdao-dictionary)

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: lstb
+# uuid:
+# key: lstb
+# condition: t
+# --
+\begin{lstlisting}[style=bash]
+$0
+\end{lstlisting}

@@ -4,7 +4,11 @@
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
 
-
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
 
 (setq tab-width 4
       inhibit-splash-screen t
@@ -75,6 +79,30 @@
    ))
 
 
+(setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
+(setq sentence-end-double-space nil)
+;;设置 sentence-end 可以识别中文标点。不用在 fill 时在句号后插入两个空格。
 
+(setq enable-recursive-minibuffers t)
+;;可以递归的使用 minibuffer
+
+(setq scroll-margin 3 scroll-conservatively 10000)
+;;防止页面滚动时跳动， scroll-margin 3 可以在靠近屏幕边沿3行时就开始滚动，可以很好的看到上下文。
+;;
+(mouse-avoidance-mode 'animate)
+;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
+;;
+(setq frame-title-format "emacs@%b")
+;;在标题栏显示buffer的名字，而不是 emacs@wangyin.com 这样没用的提示。
+
+(add-hook 'comint-output-filter-functions
+      'comint-watch-for-password-prompt)
+;;当你在shell、telnet、w3m等模式下时，必然碰到过要输入密码的情况,此时加密显出你的密码
+;;
+(setq track-eol t)
+;; 当光标在行尾上下移动的时候，始终保持在行尾。
+
+(setq Man-notify-method 'pushy)
+;; 当浏览 man page 时，直接跳转到 man buffer。
 
 (provide 'init-general)

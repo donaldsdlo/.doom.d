@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: lstp
+# uuid:
+# key: lstp
+# condition: t
+# --
+\begin{lstlisting}[style=python]
+$0
+\end{lstlisting}
