@@ -4,12 +4,12 @@
 (setq org-todo-keyword-faces '(("TODO" . org-warning)
                                ("INPROGRESS" . "yellow") ("WAITING" . "purple") ("REVIEW" . "orange") ("DONE" . "green") ("CANCELED" . "red")))
 (use-package org-bullets :config
-             (progn
-               (setq org-bullets-bullet-list '("☯" "✿" "✚" "◉" "❀")) (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))) ))
+  (progn
+    (setq org-bullets-bullet-list '("☯" "✿" "✚" "◉" "❀")) (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))) ))
 (use-package org-alert :defer t
-             :config
-             (progn
-               (setq alert-default-style 'libnotify) ))
+  :config
+  (progn
+    (setq alert-default-style 'libnotify) ))
 ;;设置org mode显示图片为1/3
 (setq org-image-actual-width (/ (display-pixel-width) 3))
 
@@ -54,7 +54,35 @@
 ;;   (insert "\n")
 ;;   (insert (concat "[[" filename "]]"))
 ;;   (org-display-inline-images))
-
+(defun paste-image-from-clipboard()
+  (interactive)
+  (let (
+        (bf-full-name (buffer-file-name (current-buffer)))
+        (bf-directory )
+        (bf-filename )
+        (bf-extension )
+        (bf-image-filename)
+        (bf-image-full-filename)
+        (bf-image-relative-filename)
+        )
+    (progn
+      (setq bf-directory (file-name-directory bf-full-name))
+      (setq bf-filename (file-name-base bf-full-name))
+      (setq bf-extension (file-name-extension bf-full-name))
+      (setq bf-image-filename (concat (format-time-string "%Y%m%d-%H%M%S") ".png"))
+      (setq bf-image-full-filename (concat bf-directory bf-filename "-images/" bf-image-filename))
+      (setq bf-image-relative-filename (concat "./" bf-filename "-images/" bf-image-filename))
+      (message "bf-image-full-filename:%s" bf-image-full-filename)
+      (message "bf-image-relative-filename:%s" bf-image-relative-filename)
+      (message "bf-full-name:%s" bf-full-name)
+      (message "bf-directory:%s" bf-directory)
+      (message "bf-filename:%s" bf-filename)
+      (message "bf-extension:%s" bf-extension)
+      (shell-command (concat "pngpaste " bf-image-full-filename))
+      (insert (concat "[[" bf-image-relative-filename "]]"))
+      )
+    )
+  )
 
 
 (provide 'init-org-mode)

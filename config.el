@@ -63,3 +63,4 @@
 (require 'init-cpp)
 (require 'init-keybindings)
 (require 'init-org-mode-export)
+(require 'init-projectile)

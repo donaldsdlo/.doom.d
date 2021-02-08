@@ -7,6 +7,6 @@
 
 (map! :leader "z t" #'youdao-dictionary-search-at-point-posframe)
 
-
+(map! :leader "z p" #'paste-image-from-clipboard)
 
 (provide 'init-keybindings)
