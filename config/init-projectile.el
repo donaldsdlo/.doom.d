@@ -4,6 +4,7 @@
                                                   ".pdf"
                                                   ".aux"
                                                   ".toc"
+                                                  ".out"
                                                   ))
 
 (provide 'init-projectile)
