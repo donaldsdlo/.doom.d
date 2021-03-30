@@ -105,4 +105,21 @@
 (setq Man-notify-method 'pushy)
 ;; 当浏览 man page 时，直接跳转到 man buffer。
 
+
+
+(defun slurp (f)
+  (with-temp-buffer
+    (insert-file-contents f)
+    (buffer-substring-no-properties
+       (point-min)
+       (point-max))))
+
+(defun load-config-to-list (f)
+         (split-string
+                               (slurp f)
+                               "\n"
+                               t)
+  )
+
+
 (provide 'init-general)

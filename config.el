@@ -55,12 +55,16 @@
 ;;
 (setq custom-file "~/.doom.d/config/custom-file.el")
 (add-to-list 'load-path "~/.doom.d/config/")
+(add-to-list 'load-path "~/.doom.d/packages/netease-cloud-music.el/")
 (require 'init-general)
 (require 'init-ui)
 (require 'init-org-mode)
 (require 'init-java)
 (require 'init-company)
 (require 'init-cpp)
-(require 'init-keybindings)
 (require 'init-org-mode-export)
 (require 'init-projectile)
+
+(require 'init-netease-music)
+
+(require 'init-keybindings)
